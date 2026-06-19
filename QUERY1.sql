@@ -46,4 +46,4 @@ select * from student where age > 12;
 use schooldb;
 
 update student set grade="X" where grade="10th";
-delete from student
+delete from student where D_O_B is null;
