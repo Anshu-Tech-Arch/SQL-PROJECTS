@@ -43,8 +43,6 @@ insert into student(id, name, age, grade, D_O_B) VALUES
 use schooldb;
 select * from student;
 select * from student where age > 12;
+use schooldb;
 
-
-
-
- 
+update student set grade="X" where grade="10th";
