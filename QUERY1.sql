@@ -47,3 +47,4 @@ use schooldb;
 
 update student set grade="X" where grade="10th";
 delete from student where D_O_B is null;
+select * from student;
