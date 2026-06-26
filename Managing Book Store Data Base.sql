@@ -1,5 +1,5 @@
--- create database bookstore_db;
--- use bookstore_db;
+create database bookstore_db;
+use bookstore_db;
 create table Authors(
 	author_id int Primary Key auto_increment,
     first_name varchar(50) not null,
