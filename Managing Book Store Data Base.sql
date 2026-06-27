@@ -184,4 +184,9 @@ VALUES
 (20,3,2,350.00),
 (22,10,1,299.00),
 (25,5,1,550.00);
-select * from Order_Items;
+select title from Books;
+select title from Books where price> (select avg(price) from Books);
+select title from Books where genre='Fiction';
+select first_name, last_name from Customers where city='Delhi';
+select title from Books order by price asc; 
+(select title from Books order by price desc limit 5);
