@@ -46,3 +46,13 @@ create table Order_Items(
     foreign key(order_id) references Orders(order_id),
     foreign key(book_id) references Books(book_id)
 );
+
+alter table Authors drop column country;
+select * from Authors;
+alter table Books add column M_F_D date;
+select * from Books;
+alter table Customers rename column email to email_id;
+select * from Customers;
+alter table Orders modify column total_amount decimal(10,2) not null;
+select * from Orders;
+alter table Order_Items alter column quantity set default(null);
