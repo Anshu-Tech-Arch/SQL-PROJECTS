@@ -199,6 +199,6 @@ SET FOREIGN_KEY_CHECKS = 1;
 Delete from Orders;
 select * from Orders;
 SHOW CREATE TABLE Orders;
-ALTER TABLE Orders
-DROP CHECK orders_chk_1;
-update Orders set status varchar(50) check(status in('Packed', 'Shipped', 'Out_For_Delivery', 'Delivered', 'Cancelled));
+ALTER TABLE Orders DROP CHECK orders_chk_1;
+alter table Orders add constraint orders_chk_1 check (Status in('Packed', 'Shipped', 'Out_For_Delivery', 'Delivered', 'Cancelled'));
+SHOW CREATE TABLE Orders;
