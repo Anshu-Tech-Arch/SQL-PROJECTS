@@ -202,3 +202,22 @@ SHOW CREATE TABLE Orders;
 ALTER TABLE Orders DROP CHECK orders_chk_1;
 alter table Orders add constraint orders_chk_1 check (Status in('Packed', 'Shipped', 'Out_For_Delivery', 'Delivered', 'Cancelled'));
 SHOW CREATE TABLE Orders;
+SELECT * FROM Orders WHERE status = 'Cancelled';
+
+delete from Orders where status = 'Cancelled'; 
+SHOW CREATE TABLE Orders;
+alter table Orders drop foreign key orders_ibfk_1;
+alter table Orders add constraint foreign_key_orders foreign key(customer_id) references Customers(customer_id);
+SHOW CREATE TABLE Order_Items;
+ALTER TABLE Orders
+DROP CHECK orders_chk_1;
+ALTER TABLE Order_Items
+ADD CONSTRAINT 
+FOREIGN KEY (order_id)
+REFERENCES Orders(order_id)
+ON DELETE CASCADE;
+delete from Orders where status='Cancelled';
+SHOW CREATE TABLE Order_Items;
+ALTER TABLE Order_Items
+DROP FOREIGN KEY order_items_ibfk_1;
+SHOW CREATE TABLE Order_Items;
