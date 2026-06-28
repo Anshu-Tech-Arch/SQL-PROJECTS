@@ -117,7 +117,7 @@ INSERT INTO Orders
 VALUES
 (1,1,'2025-04-01',798.00,'Delivered'),
 (2,2,'2025-04-03',499.00,'Delivered'),
-(3,3,'2025-04-08',850.00,'Shipped'),
+(3,3,'2025-04-08',850.00,'Cancelled'),
 (4,4,'2025-04-12',299.00,'Packed'),
 (5,5,'2025-04-18',1049.00,'Delivered'),
 (6,1,'2025-05-02',399.00,'Delivered'),
@@ -125,7 +125,7 @@ VALUES
 (8,7,'2025-05-11',450.00,'Delivered'),
 (9,8,'2025-05-18',550.00,'Packed'),
 (10,9,'2025-05-21',799.00,'Delivered'),
-(11,10,'2025-05-25',250.00,'Delivered'),
+(11,10,'2025-05-25',250.00,'Cancelled'),
 (12,11,'2025-06-01',650.00,'Shipped'),
 (13,12,'2025-06-05',399.00,'Delivered'),
 (14,13,'2025-06-08',700.00,'Packed'),
@@ -137,7 +137,7 @@ VALUES
 (20,4,'2025-06-21',600.00,'Packed'),
 (21,5,'2025-06-22',550.00,'Delivered'),
 (22,6,'2025-06-23',450.00,'Out_For_Delivery'),
-(23,7,'2025-06-24',399.00,'Delivered'),
+(23,7,'2025-06-24',399.00,'Cancelled'),
 (24,8,'2025-06-25',299.00,'Packed'),
 (25,9,'2025-06-26',650.00,'Shipped');
 
@@ -190,3 +190,15 @@ select title from Books where genre='Fiction';
 select first_name, last_name from Customers where city='Delhi';
 select title from Books order by price asc; 
 (select title from Books order by price desc limit 5);
+update Books set price=price+500;
+select * from Books;
+Update Books set stock=stock+50;
+Update Customers set city='New Delhi' where city='Delhi';
+select * from Customers;
+SET FOREIGN_KEY_CHECKS = 1;
+Delete from Orders;
+select * from Orders;
+SHOW CREATE TABLE Orders;
+ALTER TABLE Orders
+DROP CHECK orders_chk_1;
+update Orders set status varchar(50) check(status in('Packed', 'Shipped', 'Out_For_Delivery', 'Delivered', 'Cancelled));
