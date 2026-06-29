@@ -221,3 +221,18 @@ SHOW CREATE TABLE Order_Items;
 ALTER TABLE Order_Items
 DROP FOREIGN KEY order_items_ibfk_1;
 SHOW CREATE TABLE Order_Items;
+start transaction;
+update Books set price=price+12;
+rollback;
+select * from Books;
+start transaction;
+delete from Books where price > 1000;
+commit;
+select * from Books;
+alter table Books drop Foreign key books_ibfk_1;
+alter table Books add foreign key (author_id)references Authors(author_id); 
+
+alter table Order_Items drop foreign key order_items_ibfk_2;
+alter table Order_Items add foreign key (book_id) references Books(book_id);
+alter table Order_Items add foreign key (book_id) reference Books(book_id);
+select * from 
