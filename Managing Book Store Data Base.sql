@@ -234,5 +234,6 @@ alter table Books add foreign key (author_id)references Authors(author_id);
 
 alter table Order_Items drop foreign key order_items_ibfk_2;
 alter table Order_Items add foreign key (book_id) references Books(book_id);
-alter table Order_Items add foreign key (book_id) reference Books(book_id);
-select * from 
+alter table Order_Items add foreign key (book_id) references Books(book_id);
+alter table Orders add column order_date1 DateTime default(now());
+select * from Orders;
