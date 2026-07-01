@@ -239,3 +239,5 @@ alter table Orders add column order_date1 DateTime default(now());
 select * from Orders;
 select first_name, last_name, Orders.order_id, Orders.order_date, Orders.status from Customers inner join Orders on Customers.customer_id=Orders.customer_id;
 select Customers.customer_id, first_name, last_name, Orders.order_id, Orders.order_date from Customers left join Orders on Customers.customer_id=Orders.customer_id;
+SELECT Books.book_id, Books.title, Books.genre, Order_Items.order_id, Order_Items.quantity, Order_Items.selling_price
+FROM Books INNER JOIN Order_Items ON Books.book_id = Order_Items.book_id;
