@@ -46,7 +46,6 @@ create table Order_Items(
     foreign key(order_id) references Orders(order_id),
     foreign key(book_id) references Books(book_id)
 );
-
 alter table Authors drop column country;
 select * from Authors;
 alter table Books add column M_F_D date;
@@ -241,3 +240,4 @@ select first_name, last_name, Orders.order_id, Orders.order_date, Orders.status 
 select Customers.customer_id, first_name, last_name, Orders.order_id, Orders.order_date from Customers left join Orders on Customers.customer_id=Orders.customer_id;
 SELECT Books.book_id, Books.title, Books.genre, Order_Items.order_id, Order_Items.quantity, Order_Items.selling_price
 FROM Books INNER JOIN Order_Items ON Books.book_id = Order_Items.book_id;
+select * from Books left join Order_Items on Books.book_id=Order_Items.book_id;
