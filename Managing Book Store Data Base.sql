@@ -238,3 +238,4 @@ alter table Order_Items add foreign key (book_id) references Books(book_id);
 alter table Orders add column order_date1 DateTime default(now());
 select * from Orders;
 select first_name, last_name, Orders.order_id, Orders.order_date, Orders.status from Customers inner join Orders on Customers.customer_id=Orders.customer_id;
+select Customers.customer_id, first_name, last_name, Orders.order_id, Orders.order_date from Customers left join Orders on Customers.customer_id=Orders.customer_id;
