@@ -241,3 +241,5 @@ select Customers.customer_id, first_name, last_name, Orders.order_id, Orders.ord
 SELECT Books.book_id, Books.title, Books.genre, Order_Items.order_id, Order_Items.quantity, Order_Items.selling_price
 FROM Books INNER JOIN Order_Items ON Books.book_id = Order_Items.book_id;
 select * from Books left join Order_Items on Books.book_id=Order_Items.book_id;
+select Authors.author_id, Authors.first_name, Authors.last_name, Books.title, Books.genre, Books.price, Books.published_date 
+from Authors Inner join Books;
